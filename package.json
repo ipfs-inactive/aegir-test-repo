@@ -1,6 +1,6 @@
 {
   "name": "aegir-test-repo",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "a module to test aegir tool chain. Really inspired by aegir-test-repo, some say it was even a fork!",
   "main": "src/index.js",
   "browser": {
