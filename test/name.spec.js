@@ -25,21 +25,27 @@ describe('.name', () => {
     series([
       (cb) => {
         fc.spawnNode((err, node) => {
-          expect(err).to.not.exist()
+          if (err) {
+            return cb(err)
+          }
           ipfs = node
           cb()
         })
       },
       (cb) => {
         fc.spawnNode((err, node) => {
-          expect(err).to.not.exist()
+          if (err) {
+            return cb(err)
+          }
           other = node
           cb()
         })
       },
       (cb) => {
         ipfs.id((err, id) => {
-          expect(err).to.not.exist()
+          if (err) {
+            return cb(err)
+          }
           const ma = id.addresses[0]
           other.swarm.connect(ma, cb)
         })
@@ -54,10 +60,8 @@ describe('.name', () => {
 
     it('add file for testing', (done) => {
       const expectedMultihash = 'Qma4hjFTnCasJ8PVp3mZbZK5g2vGDT4LByLJ7m8ciyRFZP'
-
       ipfs.files.add(testfile, (err, res) => {
         expect(err).to.not.exist()
-
         expect(res).to.have.length(1)
         expect(res[0].hash).to.equal(expectedMultihash)
         expect(res[0].path).to.equal(expectedMultihash)

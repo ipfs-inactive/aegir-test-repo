@@ -6,7 +6,6 @@ const DaemonSpawner = require('./daemon-spawner')
 module.exports = (http) => {
   const io = new SocketIO(http.listener)
   io.on('connection', handle)
-
   const ds = new DaemonSpawner()
 
   function handle (socket) {

@@ -10,16 +10,16 @@
     "http": "stream-http"
   },
   "scripts": {
-    "test": "gulp test",
-    "test:node": "gulp test:node",
-    "test:browser": "gulp test:browser",
-    "lint": "aegir-lint",
-    "build": "gulp build",
-    "release": "gulp release",
-    "release-minor": "gulp release --type minor",
-    "release-major": "gulp release --type major",
-    "coverage": "gulp coverage",
-    "coverage-publish": "aegir-coverage publish"
+    "test": "aegir test",
+    "test:node": "aegir test --target node",
+    "test:browser": "aegir test --target browser webworker",
+    "lint": "aegir lint",
+    "build": "aegir build",
+    "release": "npm run test && aegir release --no-test",
+    "release-minor": "npm run test && aegir release --no-test --type minor",
+    "release-major": "npm run test && aegir release --no-test --type major",
+    "coverage": "aegir coverage",
+    "coverage-publish": "aegir coverage --publish"
   },
   "dependencies": {
     "async": "^2.4.1",
@@ -60,7 +60,7 @@
     "url": "https://github.com/ipfs/js-ipfs-api"
   },
   "devDependencies": {
-    "aegir": "^11.0.2",
+    "aegir": "ipfs/aegir#next",
     "chai": "^4.0.2",
     "dirty-chai": "^2.0.0",
     "eslint-plugin-react": "^7.1.0",
@@ -71,7 +71,8 @@
     "pre-commit": "^1.2.2",
     "socket.io": "^2.0.3",
     "socket.io-client": "^2.0.3",
-    "stream-equal": "^1.0.0"
+    "stream-equal": "^1.0.0",
+    "yargs": "^8.0.2"
   },
   "pre-commit": [
     "lint",
@@ -81,55 +82,10 @@
     "ipfs"
   ],
   "author": "Matt Bell <mappum@gmail.com>",
-  "contributors": [
-    "Alex Mingoia <talk@alexmingoia.com>",
-    "Connor Keenan <ckeenan89@gmail.com>",
-    "Danny <dannyid@protonmail.com>",
-    "David Braun <David.Braun@Toptal.com>",
-    "David Dias <daviddias.p@gmail.com>",
-    "Fil <fil@rezo.net>",
-    "Francisco Baio Dias <xicombd@gmail.com>",
-    "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
-    "Gavin McDermott <gavinmcdermott@gmail.com>",
-    "Greenkeeper <support@greenkeeper.io>",
-    "Haad <haadcode@users.noreply.github.com>",
-    "Harlan T Wood <harlantwood@users.noreply.github.com>",
-    "Harlan T Wood <code@harlantwood.net>",
-    "Holodisc <holodiscent@gmail.com>",
-    "James Halliday <substack@gmail.com>",
-    "Jason Carver <jacarver@linkedin.com>",
-    "Jason Papakostas <vith@users.noreply.github.com>",
-    "Jeff Downie <JeffDownie@users.noreply.github.com>",
-    "Jeromy <why@ipfs.io>",
-    "Jeromy <jeromyj@gmail.com>",
-    "Joe Turgeon <arithmetric@gmail.com>",
-    "Juan Batiz-Benet <juan@benet.ai>",
-    "Kristoffer Ström <kristoffer@rymdkoloni.se>",
-    "Matt Bell <mappum@gmail.com>",
-    "Maxime Lathuilière <k@maxlath.eu>",
-    "Michael Muré <batolettre@gmail.com>",
-    "Mitar <mitar.git@tnode.com>",
-    "Mithgol <getgit@mithgol.ru>",
-    "Pedro Teixeira <i@pgte.me>",
-    "Richard Littauer <richard.littauer@gmail.com>",
-    "Stephen Whitmore <stephen.whitmore@gmail.com>",
-    "Tara Vancil <tbvanc@gmail.com>",
-    "Travis Person <travis.person@gmail.com>",
-    "Victor Bjelkholm <victor@typeform.com>",
-    "dmitriy ryajov <dryajov@dmitriys-MacBook-Pro.local>",
-    "elsehow <yes@cosmopol.is>",
-    "ethers <ethereum@outlook.com>",
-    "haad <haad@headbanggames.com>",
-    "kumavis <kumavis@users.noreply.github.com>",
-    "nginnever <ginneversource@gmail.com>",
-    "priecint <tp-dev@seznam.cz>",
-    "samuli <samuli@nugg.ad>",
-    "Łukasz Magiera <magik6k@users.noreply.github.com>",
-    "ᴠɪᴄᴛᴏʀ ʙᴊᴇʟᴋʜᴏʟᴍ <victorbjelkholm@gmail.com>"
-  ],
+  "contributors": [],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ipfs/js-ipfs-api/issues"
   },
-  "homepage": "https://github.com/ipfs/js-ipfs-api"
+  "homepage": "https://github.com/ipfs/aegir-test-repo"
 }
