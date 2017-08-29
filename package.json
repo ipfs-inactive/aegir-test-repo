@@ -10,15 +10,15 @@
     "http": "stream-http"
   },
   "scripts": {
-    "test": "aegir test --no-parallel --timeout 20000",
-    "test:node": "aegir test --target node --no-parallel --timeout 20000",
-    "test:browser": "aegir test --target browser webworker --timeout 20000",
+    "test": "aegir test --no-parallel --timeout 80000",
+    "test:node": "aegir test --target node --no-parallel --timeout 80000",
+    "test:browser": "aegir test --target browser webworker --timeout 80000",
     "lint": "aegir lint",
     "build": "aegir build",
     "release": "npm run test && aegir release --no-test",
     "release-minor": "npm run test && aegir release --no-test --type minor",
     "release-major": "npm run test && aegir release --no-test --type major",
-    "coverage": "aegir coverage --upload --no-parallel --timeout 20000"
+    "coverage": "aegir coverage --upload --no-parallel --timeout 80000"
   },
   "dependencies": {
     "async": "^2.4.1",
