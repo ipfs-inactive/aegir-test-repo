@@ -1,7 +1,7 @@
 {
-  "name": "ipfs-api",
-  "version": "17.2.4",
-  "description": "A client library for the IPFS HTTP API. Follows interface-ipfs-core spec",
+  "name": "aegir-test-repo",
+  "version": "0.1.0",
+  "description": "A module used only for testing aegir",
   "main": "src/index.js",
   "browser": {
     "glob": false,
