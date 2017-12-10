@@ -6,13 +6,20 @@ const chai = require('chai')
 const dirtyChai = require('dirty-chai')
 const expect = chai.expect
 chai.use(dirtyChai)
+const os = require('os')
 
-describe('.diag', () => {
+describe('.diag', function () {
+  this.timeout(50 * 1000)
+
+  if (os.platform() === 'win32') {
+    it('skip these on Windows')
+    return
+  }
+
   let ipfs
   let fc
 
-  before(function (done) {
-    this.timeout(20 * 1000) // slow CI
+  before((done) => {
     fc = new FactoryClient()
     fc.spawnNode((err, node) => {
       expect(err).to.not.exist()
@@ -24,7 +31,8 @@ describe('.diag', () => {
   after((done) => fc.dismantle(done))
 
   describe('Callback API', () => {
-    it('.diag.net', (done) => {
+    // Disabled in go-ipfs 0.4.10
+    it.skip('.diag.net', (done) => {
       ipfs.diag.net((err, res) => {
         expect(err).to.not.exist()
         expect(res).to.exist()
@@ -52,7 +60,8 @@ describe('.diag', () => {
   })
 
   describe('Promise API', () => {
-    it('.diag.net', () => {
+    // Disabled in go-ipfs 0.4.10
+    it.skip('.diag.net', () => {
       return ipfs.diag.net()
         .then((res) => expect(res).to.exist())
     })

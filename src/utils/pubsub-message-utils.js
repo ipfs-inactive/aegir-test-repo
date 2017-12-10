@@ -27,10 +27,10 @@ function deserializeFromBase64 (obj) {
   }
 
   return {
-    from: bs58.encode(new Buffer(obj.from, 'base64')).toString(),
-    seqno: new Buffer(obj.seqno, 'base64'),
-    data: new Buffer(obj.data, 'base64'),
-    topicCIDs: obj.topicIDs || obj.topicCIDs
+    from: bs58.encode(Buffer.from(obj.from, 'base64')).toString(),
+    seqno: Buffer.from(obj.seqno, 'base64'),
+    data: Buffer.from(obj.data, 'base64'),
+    topicIDs: obj.topicIDs || obj.topicCIDs
   }
 }
 

@@ -1,23 +1,42 @@
 'use strict'
 
-const isStream = require('isstream')
 const promisify = require('promisify-es6')
-const DAGNodeStream = require('../utils/dagnode-stream')
+const ConcatStream = require('concat-stream')
+const once = require('once')
+const isStream = require('is-stream')
+const SendFilesStream = require('../utils/send-files-stream')
 
 module.exports = (send) => {
-  return promisify((files, callback) => {
-    const ok = Buffer.isBuffer(files) ||
-               isStream.isReadable(files) ||
-               Array.isArray(files)
+  const createAddStream = SendFilesStream(send, 'add')
+
+  return promisify((_files, options, _callback) => {
+    if (typeof options === 'function') {
+      _callback = options
+      options = null
+    }
+
+    const callback = once(_callback)
+
+    if (!options) {
+      options = {}
+    }
+
+    const ok = Buffer.isBuffer(_files) ||
+               isStream.readable(_files) ||
+               Array.isArray(_files)
 
     if (!ok) {
       return callback(new Error('"files" must be a buffer, readable stream, or array of objects'))
     }
 
-    const request = { path: 'add', files: files }
+    const files = [].concat(_files)
 
-    // Transform the response stream to DAGNode values
-    const transform = (res, callback) => DAGNodeStream.streamToValue(send, res, callback)
-    send.andTransform(request, transform, callback)
+    const stream = createAddStream(options)
+    const concat = ConcatStream((result) => callback(null, result))
+    stream.once('error', callback)
+    stream.pipe(concat)
+
+    files.forEach((file) => stream.write(file))
+    stream.end()
   })
 }

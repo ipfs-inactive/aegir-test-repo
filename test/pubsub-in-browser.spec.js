@@ -50,9 +50,13 @@ function spawnWithId (factory, callback) {
   ], callback)
 }
 
-describe('.pubsub-browser (pubsub not supported in the browsers currently)', () => {
-  if (isNode) { return it('skipped in node') }
+describe('.pubsub-browser (pubsub not supported in the browsers currently)', function () {
+  this.timeout(50 * 1000)
 
+  if (isNode) {
+    it('skip these in Node.js')
+    return
+  }
   const topic = 'pubsub-tests'
 
   let factory

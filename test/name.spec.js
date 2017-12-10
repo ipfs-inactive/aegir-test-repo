@@ -14,38 +14,33 @@ const testfile = isNode
   ? loadFixture(__dirname, '/fixtures/testfile.txt')
   : loadFixture(__dirname, 'fixtures/testfile.txt')
 
-describe('.name', () => {
+describe('.name', function () {
+  this.timeout(50 * 1000)
+
   let ipfs
   let other
   let fc
 
-  before(function (done) {
-    this.timeout(20 * 1000) // slow CI
+  before((done) => {
     fc = new FactoryClient()
     series([
       (cb) => {
         fc.spawnNode((err, node) => {
-          if (err) {
-            return cb(err)
-          }
+          expect(err).to.not.exist()
           ipfs = node
           cb()
         })
       },
       (cb) => {
         fc.spawnNode((err, node) => {
-          if (err) {
-            return cb(err)
-          }
+          expect(err).to.not.exist()
           other = node
           cb()
         })
       },
       (cb) => {
         ipfs.id((err, id) => {
-          if (err) {
-            return cb(err)
-          }
+          expect(err).to.not.exist()
           const ma = id.addresses[0]
           other.swarm.connect(ma, cb)
         })
@@ -60,8 +55,10 @@ describe('.name', () => {
 
     it('add file for testing', (done) => {
       const expectedMultihash = 'Qma4hjFTnCasJ8PVp3mZbZK5g2vGDT4LByLJ7m8ciyRFZP'
+
       ipfs.files.add(testfile, (err, res) => {
         expect(err).to.not.exist()
+
         expect(res).to.have.length(1)
         expect(res[0].hash).to.equal(expectedMultihash)
         expect(res[0].path).to.equal(expectedMultihash)
