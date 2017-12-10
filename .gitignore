@@ -1,4 +1,8 @@
-node_modules
+package-lock.json
+yarn.lock
+docs
+
+**/node_modules
 **/*.log
 test/setup/tmp-disposable-nodes-addrs.json
 dist
