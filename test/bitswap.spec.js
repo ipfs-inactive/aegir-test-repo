@@ -9,11 +9,11 @@ const FactoryClient = require('./ipfs-factory/client')
 
 describe('.bitswap', function () {
   this.timeout(20 * 1000) // slow CI
-
   let ipfs
   let fc
 
   before((done) => {
+    this.timeout(20 * 1000) // slow CI
     fc = new FactoryClient()
     fc.spawnNode((err, node) => {
       expect(err).to.not.exist()

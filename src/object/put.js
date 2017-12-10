@@ -9,13 +9,20 @@ const lruOptions = {
 }
 
 const cache = LRU(lruOptions)
+const SendOneFile = require('../utils/send-one-file')
+const once = require('once')
 
 module.exports = (send) => {
-  return promisify((obj, options, callback) => {
+  const sendOneFile = SendOneFile(send, 'object/put')
+
+  return promisify((obj, options, _callback) => {
     if (typeof options === 'function') {
-      callback = options
+      _callback = options
       options = {}
     }
+
+    const callback = once(_callback)
+
     if (!options) {
       options = {}
     }
@@ -52,17 +59,17 @@ module.exports = (send) => {
     if (Buffer.isBuffer(obj) && options.enc) {
       buf = obj
     } else {
-      buf = new Buffer(JSON.stringify(tmpObj))
+      buf = Buffer.from(JSON.stringify(tmpObj))
     }
     const enc = options.enc || 'json'
 
-    send({
-      path: 'object/put',
-      qs: { inputenc: enc },
-      files: buf
-    }, (err, result) => {
+    const sendOptions = {
+      qs: { inputenc: enc }
+    }
+
+    sendOneFile(buf, sendOptions, (err, result) => {
       if (err) {
-        return callback(err)
+        return callback(err) // early
       }
 
       if (Buffer.isBuffer(obj)) {
@@ -87,7 +94,7 @@ module.exports = (send) => {
         })
         return
       } else {
-        DAGNode.create(new Buffer(obj.Data), obj.Links, (err, _node) => {
+        DAGNode.create(Buffer.from(obj.Data), obj.Links, (err, _node) => {
           if (err) {
             return callback(err)
           }

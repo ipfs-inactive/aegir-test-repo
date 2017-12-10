@@ -110,6 +110,14 @@ describe('submodules', () => {
     expect(repo.stat).to.be.a('function')
   })
 
+  it('stats', () => {
+    const stats = require('../src/stats')(config)
+
+    expect(stats.bitswap).to.be.a('function')
+    expect(stats.bw).to.be.a('function')
+    expect(stats.repo).to.be.a('function')
+  })
+
   it('swarm', () => {
     const swarm = require('../src/swarm')(config)
 
@@ -157,9 +165,14 @@ describe('submodules', () => {
     const files = require('../src/files')(config)
 
     expect(files.add).to.be.a('function')
-    expect(files.createAddStream).to.be.a('function')
+    expect(files.addReadableStream).to.be.a('function')
+    expect(files.addPullStream).to.be.a('function')
     expect(files.get).to.be.a('function')
+    expect(files.getReadableStream).to.be.a('function')
+    expect(files.getPullStream).to.be.a('function')
     expect(files.cat).to.be.a('function')
+    expect(files.catReadableStream).to.be.a('function')
+    expect(files.catPullStream).to.be.a('function')
     expect(files.cp).to.be.a('function')
     expect(files.ls).to.be.a('function')
     expect(files.mkdir).to.be.a('function')
