@@ -10,14 +10,14 @@
     "http": "stream-http"
   },
   "scripts": {
-    "test": "aegir test ",
-    "test:node": "aegir test -t node ",
+    "test": "aegir test",
+    "test:node": "aegir test -t node",
     "test:browser": "aegir test -t browser",
     "lint": "aegir lint",
     "build": "aegir build",
-    "release": "aegir release ",
-    "release-minor": "aegir release --type minor ",
-    "release-major": "aegir release --type major ",
+    "release": "aegir release -t node browser",
+    "release-minor": "aegir release --type minor -t node browser",
+    "release-major": "aegir release --type major -t node browser",
     "coverage": "aegir coverage --timeout 100000",
     "coverage-publish": "aegir coverage --provider coveralls --timeout 100000"
   },
