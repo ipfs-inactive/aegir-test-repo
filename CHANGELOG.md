@@ -1,3 +1,14 @@
+<a name="0.1.16"></a>
+## [0.1.16](https://github.com/ipfs/aegir-test-repo/compare/v0.1.15...v0.1.16) (2018-05-07)
+
+
+### Bug Fixes
+
+* just testing ([6e3ce81](https://github.com/ipfs/aegir-test-repo/commit/6e3ce81))
+* new package json ([9e79c71](https://github.com/ipfs/aegir-test-repo/commit/9e79c71))
+
+
+
 <a name="0.1.15"></a>
 ## [0.1.15](https://github.com/ipfs/aegir-test-repo/compare/v0.1.14...v0.1.15) (2017-12-18)
 
