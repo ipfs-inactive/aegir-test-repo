@@ -1,4 +1,9 @@
 <a name="0.1.32"></a>
+## [0.1.32](https://github.com/ipfs/aegir-test-repo/compare/v0.1.29...v0.1.32) (2018-10-01)
+
+
+
+<a name="0.1.32"></a>
 ## [0.1.32](https://github.com/ipfs/aegir-test-repo/compare/v0.1.31...v0.1.32) (2018-07-05)
 
 
