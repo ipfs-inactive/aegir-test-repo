@@ -1,6 +1,6 @@
 {
   "name": "aegir-test-repo",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "A module used only for testing aegir",
   "main": "src/index.js",
   "browser": {
