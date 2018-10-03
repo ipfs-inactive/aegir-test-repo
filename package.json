@@ -18,8 +18,7 @@
     "release": "aegir release",
     "release-minor": "aegir release --type minor",
     "release-major": "aegir release --type major",
-    "coverage": "aegir coverage --timeout 100000",
-    "coverage-publish": "aegir coverage --provider coveralls --timeout 100000"
+    "coverage": "aegir coverage --timeout 100000"
   },
   "dependencies": {
     "async": "^2.6.0",
