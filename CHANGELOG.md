@@ -1,3 +1,8 @@
+<a name="0.3.12"></a>
+## [0.3.12](https://github.com/ipfs/aegir-test-repo/compare/v0.3.11...v0.3.12) (2018-10-03)
+
+
+
 <a name="0.3.11"></a>
 ## [0.3.11](https://github.com/ipfs/aegir-test-repo/compare/v0.3.10...v0.3.11) (2018-10-03)
 
