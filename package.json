@@ -15,9 +15,11 @@
     "test:browser": "aegir test -t browser webworker",
     "lint": "aegir lint",
     "build": "aegir build",
+    "release-candidate": "aegir release --type prepatch --preid rc",
     "release": "aegir release",
-    "release-candidate": "aegir release --type prerelease --preid rc",
+    "release-minor-candidate": "aegir release --type preminor --preid rc",
     "release-minor": "aegir release --type minor",
+    "release-major-candidate": "aegir release --type premajor --preid rc",
     "release-major": "aegir release --type major",
     "coverage": "aegir coverage --timeout 100000"
   },
