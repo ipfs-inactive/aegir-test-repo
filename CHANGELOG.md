@@ -1,3 +1,13 @@
+<a name="0.8.1-rc.0"></a>
+## [0.8.1-rc.0](https://github.com/ipfs/aegir-test-repo/compare/v0.8.0...v0.8.1-rc.0) (2018-10-23)
+
+
+### Features
+
+* add RC script ([0c52e24](https://github.com/ipfs/aegir-test-repo/commit/0c52e24))
+
+
+
 <a name="0.8.0"></a>
 # [0.8.0](https://github.com/ipfs/aegir-test-repo/compare/v0.8.0-rc.1...v0.8.0) (2018-10-23)
 
