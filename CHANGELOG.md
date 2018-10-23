@@ -1,3 +1,23 @@
+<a name="0.8.0"></a>
+# [0.8.0](https://github.com/ipfs/aegir-test-repo/compare/v0.8.0-rc.1...v0.8.0) (2018-10-23)
+
+
+### Features
+
+* a feat ([11b1235](https://github.com/ipfs/aegir-test-repo/commit/11b1235))
+
+
+
+<a name="0.8.0-rc.1"></a>
+# [0.8.0-rc.1](https://github.com/ipfs/aegir-test-repo/compare/v0.7.0...v0.8.0-rc.1) (2018-10-23)
+
+
+### Bug Fixes
+
+* a fix ([96c7f55](https://github.com/ipfs/aegir-test-repo/commit/96c7f55))
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/ipfs/aegir-test-repo/compare/v0.7.0-rc.1...v0.7.0) (2018-10-23)
 
