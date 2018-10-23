@@ -16,6 +16,7 @@
     "lint": "aegir lint",
     "build": "aegir build",
     "release": "aegir release",
+    "release-candidate": "aegir release --type prerelease --preid rc",
     "release-minor": "aegir release --type minor",
     "release-major": "aegir release --type major",
     "coverage": "aegir coverage --timeout 100000"
