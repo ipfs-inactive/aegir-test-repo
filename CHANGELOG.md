@@ -1,3 +1,13 @@
+<a name="0.10.0-rc.0"></a>
+# [0.10.0-rc.0](https://github.com/ipfs/aegir-test-repo/compare/v0.9.0...v0.10.0-rc.0) (2018-10-24)
+
+
+### Features
+
+* npmtag ([1a9d9bd](https://github.com/ipfs/aegir-test-repo/commit/1a9d9bd))
+
+
+
 <a name="0.9.0"></a>
 # [0.9.0](https://github.com/ipfs/aegir-test-repo/compare/v0.9.0-rc.0...v0.9.0) (2018-10-23)
 
